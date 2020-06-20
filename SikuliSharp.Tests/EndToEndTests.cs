@@ -14,7 +14,7 @@ namespace SikuliSharp.Tests
 			using (ResourcesUtil.StartTestApplication())
 			{
 				Assert.That(
-					Sikuli.RunProject(ResourcesUtil.DataFolder),
+					Sikuli.RunProject(ResourcesUtil.DataFolder, ResourcesUtil.ProjectScriptFilePath),
 					Is.StringContaining("SikuliSharp.Tests.Success")
 					);
 			}

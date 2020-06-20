@@ -10,6 +10,7 @@ namespace SikuliSharp.Tests.Utils
 	{
 		public static string BinPath { get; private set; }
 		public static string DataFolder { get; private set; }
+		public static string ProjectScriptFilePath { get; private set; }
 		public static string TestButtonPatternPath { get; private set; }
 		public static string GreenLabelPatternPath { get; private set; }
 		public static string RedLabelPatternPath { get; private set; }
@@ -25,6 +26,7 @@ namespace SikuliSharp.Tests.Utils
 				throw new Exception("Unable to find out the assembly codebase path");
 
 			DataFolder = Path.Combine(BinPath, "Data.sikuli");
+			ProjectScriptFilePath = Path.Combine(DataFolder, "Data.py");
 			RedLabelPatternPath = Path.Combine(DataFolder, "RedLabel.png");
 			GreenLabelPatternPath = Path.Combine(DataFolder, "GreenLabel.png");
 			TestButtonPatternPath = Path.Combine(DataFolder, "TestButton.png");

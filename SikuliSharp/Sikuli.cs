@@ -18,12 +18,12 @@ namespace SikuliSharp
 				);
 		}
 
-		public static string RunProject(string projectPath)
+		public static string RunProject(string projectPath, string projectScriptFilePath)
 		{
-			return RunProject(projectPath, null);
+			return RunProject(projectPath, projectScriptFilePath, null);
 		}
 
-		public static string RunProject(string projectPath, string args)
+		public static string RunProject(string projectPath, string projectScriptFilePath, string args)
 		{
 			if (projectPath == null) throw new ArgumentNullException("projectPath");
 
@@ -31,7 +31,7 @@ namespace SikuliSharp
 				throw new DirectoryNotFoundException(string.Format("Project not found in path '{0}'", projectPath));
 
 			var processFactory = new SikuliScriptProcessFactory();
-			var version = processFactory.GetSikuliVersion().WithProject(projectPath, args);
+			var version = processFactory.GetSikuliVersion().WithProject(projectPath, projectScriptFilePath, args);
 			using (var process = processFactory.Start(version))
 			{
 				var output = process.StandardOutput.ReadToEnd();
